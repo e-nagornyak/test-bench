@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Scanner } from './Scanner';
 import { CashRegister } from './CashRegister';
+import CashRegisterComponent from "./Ws.tsx";
 
 function App() {
   return (
@@ -9,11 +10,13 @@ function App() {
     <h1>Sh Bench</h1>
     <nav className="flex space-x-4 p-4">
       <Link to="/" className="text-blue-500 p-2 border border-gray-400 rounded-md hover:underline">Scanner</Link>
+      <Link to="/ws" className="text-blue-500 p-2 border border-gray-400 rounded-md hover:underline">WS</Link>
       <Link to="/cash-register" className="text-blue-500 p-2 border border-gray-400 rounded-md hover:underline">Cash Register</Link>
     </nav>
     <div className="size-full space-y-6 p-6">
       <Routes>
         <Route path="/" element={<Scanner />} />
+        <Route path="/ws" element={<CashRegisterComponent ipAddress="192.168.1.11" />} />
         <Route path="/cash-register" element={<CashRegister />} />
       </Routes>
     </div>
